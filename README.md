@@ -1,5 +1,5 @@
 # encryptorX
-A python encrypt program
+A python encrypt and decrypt program
 
 ## Requirements
 
