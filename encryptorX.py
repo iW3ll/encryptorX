@@ -66,7 +66,7 @@ class Encryptor:
         dirs = []
         for dirName, subdirList, fileList in os.walk(dir_path):
             for fname in fileList:
-                if (fname != 'encriptorX.py' and fname != 'data.txt.enc'):
+                if (fname != 'encryptorX.py' and fname != 'data.txt.enc'):
                     dirs.append(dirName + "\\" + fname)
         return dirs
 
@@ -93,8 +93,8 @@ def parse_args():
 key_from_args = parse_args()              
 key = key_from_args if key_from_args else b'\xf9\x89TB\xc7\x02\xd9\xdeE\xc7\xa1\x19\xb1\xc6\xcb\x83\x8e\xf7l-\x04\t\x8azc8\xdb\xf7\x8a\x9e,\x8c'
 enc = Encryptor(key)
-clear = lambda: os.system('clear')
-print(key)
+
+print(f"\nEncrypted: {key}\n")
 
 if os.path.isfile('data.txt.enc'):
     while True:
@@ -108,11 +108,12 @@ if os.path.isfile('data.txt.enc'):
             break
 
     while True:
-        clear()
+    
         choice = int(input(
-            "1. Press '1' to encrypt file.\n2. Press '2' to decrypt file.\n3. Press '3' to Encrypt all files in the "
-            "directory.\n4. Press '4' to decrypt all files in the directory.\n5. Press '5' to generate a new key.\n6. Press '6' to exit.\n"))
-        clear()
+            "\n1. Press '1' Encrypt file.\n2. Press '2' Decrypt file.\n3. Press '3' Encrypt all files in the "
+            "directory.\n4. Press '4' Decrypt all files in the directory.\n5. Press '5' Generate a new key.\n6. Press '6' Clean in windows os.\n"
+            "7. Press '7' Clean in linux os.\n6. Press '8' Exit.\nType: "))
+        
         if choice == 1:
             enc.encrypt_file(str(input("Enter name of file to encrypt: ")))
         elif choice == 2:
@@ -124,15 +125,19 @@ if os.path.isfile('data.txt.enc'):
         elif choice == 5:
             enc.key = enc.generate_new_key()
             print("\nNew key generated and saved in encryption_key.txt\nWARN: Keep this key safe it is used to decrypted your files!\n")
-          
         elif choice == 6:
+            os.system('cls')
+            print(f"\nEncrypted: {key}")
+        elif choice == 7:
+            os.system('clear')
+            print(f"\nEncrypted: {key}")
+        elif choice == 8:
             exit()
         else:
             print("Please select a valid option!")
 
 else:
     while True:
-        clear()
         password = getpass.getpass("Setting up stuff. Enter a password that will be used for decryption: ")
         repassword = getpass.getpass("Confirm password: ")
         if password == repassword:
