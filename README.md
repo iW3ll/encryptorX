@@ -4,7 +4,8 @@ A python encrypt and decrypt program
 ## Requirements
 
 •Python 3  
-- install packages in requirements.txt using pip.
+- install packages in requirements.txt using pip.  
+``pip install -r requirements.txt``
 
 ## Usage
 
