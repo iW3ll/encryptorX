@@ -12,7 +12,6 @@ A python encrypt and decrypt program
 Interface  
 • console
 
-## How to use
 ``Add encryptorX.py where you want to encrypt it can be single file or folder with subfolders``
 
 ````
