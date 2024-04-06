@@ -3,7 +3,9 @@ A python encrypt and decrypt program
 
 ## Requirements
 
-•Python 3  
+• python 3  
+• pycryptodome
+
 - install packages in requirements.txt using pip.  
 ``pip install -r requirements.txt``
 
